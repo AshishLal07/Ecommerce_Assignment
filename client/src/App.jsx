@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ProductGrid from "./components/ProductGrid";
 import Cart from "./components/Cart";
+import TransactionModal from "./components/TransactionModal";
 
 const API_URL = "http://localhost:5000/api";
 
@@ -10,6 +11,9 @@ function App() {
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showTransactionModal, setShowTransactionModal] = useState(false);
+  const [transactionState, setTransactionState] = useState("");
+  const [transactionMessage, setTransactionMessage] = useState("");
 
   useEffect(() => {
     fetchProducts();
@@ -61,7 +65,9 @@ function App() {
         name,
         email,
       });
-      alert(`Order placed! Order ID: ${response.data.orderId}`);
+      setShowTransactionModal(true);
+      setTransactionState("success");
+      setTransactionMessage(response.data.orderId);
       setCart([]);
       setShowCart(false);
     } catch (error) {
@@ -104,6 +110,15 @@ function App() {
           </>
         )}
       </main>
+
+      {showTransactionModal && (
+        <TransactionModal
+          isOpen={showTransactionModal}
+          status={transactionState}
+          onClose={() => setShowTransactionModal(false)}
+          message={transactionMessage}
+        ></TransactionModal>
+      )}
     </div>
   );
 }
