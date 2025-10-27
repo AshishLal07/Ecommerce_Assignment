@@ -105,3 +105,17 @@ Database is automatically created and seeded on first run.
 - The backend runs on port 5000, frontend on port 3000
 - CORS is enabled to allow frontend-backend communication
 - Cart data persists in the SQLite database
+
+## Screenshots
+
+- View product list
+  ![Productlist](./client/public/ecommerce1.png)
+
+- Add items to cart
+  ![CartItems](./client/public/ecommerce2.png)
+
+- Checkout
+  ![checkout](./client/public/ecommerce3.png)
+
+- Success popup
+  ![transactionPopup](./client/public/ecommerce4.png)
