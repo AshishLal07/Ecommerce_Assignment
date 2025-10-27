@@ -4,7 +4,7 @@ This is a full-stack e-commerce application with a Node.js/Express backend and R
 
 ## Project Structure
 
-\`\`\`
+```bash
 ecommerce-app/
 ├── backend/
 │ ├── server.js
@@ -26,7 +26,7 @@ ecommerce-app/
 ├── package.json
 ├── vite.config.js
 └── index.html
-\`\`\`
+```
 
 ## Installation & Running
 
